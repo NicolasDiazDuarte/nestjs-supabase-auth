@@ -55,6 +55,7 @@ export class SupabaseAuthStrategy extends Strategy {
     }
 
     this.supabase.auth
+      // @ts-ignore
       .getUser(idToken)
       .then(({ data: { user }}) => this.validate(user))
       .catch((err) => {
